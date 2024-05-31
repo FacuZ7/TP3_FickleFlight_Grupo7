@@ -14,7 +14,7 @@ Bienvenidos a **Flicker Flight**! Un proyecto realizado como parte de un desafí
 - **Modo oscuro**: Compatible con el tema oscuro de Android.
 - **Animaciones fluidas**: Implementación de animaciones para mejorar la experiencia de usuario.
 - **Persistencia de datos**: Almacenamiento de datos en la memoria del dispositivo.
-- 
+
 ## Requisitos
 
 - **Android Studio**: Asegurese de tener la última versión de Android Studio instalada.
@@ -26,7 +26,7 @@ Siga estos pasos para clonar y ejecutar el proyecto en su entorno local:
 
 1. Clone el repositorio en su máquina local:
     ```bash
-    git clone https://github.com/tuusuario/flicker-flight.git
+    git clone https://github.com/tuusuario/TP3_FickleFlight_Grupo7.git
     ```
 2. Abra Android Studio y seleccione "Open an existing Android Studio project".
 3. Navegue hasta la carpeta donde clonó el repositorio y selecciónela.
