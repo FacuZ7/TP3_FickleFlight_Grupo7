@@ -34,4 +34,11 @@ Siga estos pasos para clonar y ejecutar el proyecto en su entorno local:
 5. Conecte su dispositivo Android o utilice un emulador y ejecute la aplicación.
 
 
+## Participantes
+
+- Facundo Zapata ([@FacuZ7]()
+- Thiago Cebreiro ([@tcebreiro]()
+- Mikel Cebreiro ([@mikelce]()
+
+
 
