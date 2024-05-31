@@ -36,9 +36,9 @@ Siga estos pasos para clonar y ejecutar el proyecto en su entorno local:
 
 ## Participantes
 
-- Facundo Zapata [@FacuZ7]
-- Thiago Cebreiro [@tcebreiro]
-- Mikel Cebreiro [@mikelce]
+- Facundo Zapata ([@FacuZ7](https://github.com/FacuZ7))
+- Thiago Cebreiro ([@tcebreiro](https://github.com/tcebreiro))
+- Mikel Cebreiro ([@mikelce](https://github.com/mikelce))
 
 
 
