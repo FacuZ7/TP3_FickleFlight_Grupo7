@@ -1,7 +1,13 @@
 <resources>
     <string name="app_name">TP3_FickleFlight_Grupo7</string>
     <!-- TODO: Remove or change this placeholder text -->
+
+    <!-- SplashScreen -->
     <string name="app_main_title">FickleFlight</string>
     <string name="app_main_subtitle">Getting you where you need to go</string>
+
+    <!-- Explore -->
+    <string name="exp_btn_search">Search</string>
+    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

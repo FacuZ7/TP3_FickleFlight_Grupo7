@@ -7,13 +7,15 @@
     android:layout_height="match_parent"
     tools:context=".fragments.SearchFragment">
 
-    <TextView
-        android:id="@+id/textView2"
+    <Button
+        android:id="@+id/srch_btn_search"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="search"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="Button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="160dp"
+        tools:layout_editor_absoluteY="483dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
