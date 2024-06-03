@@ -14,4 +14,9 @@
     <!-- Toolbar -->
     <string name="user_photo">Picture</string>
 
+    <!-- Flight Card -->
+    <string name="airline_logo">Airline logo</string>
+    <string name="flight_duration">Flight duration</string>
+
+
 </resources>
