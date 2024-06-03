@@ -10,8 +10,7 @@ import com.example.tp3_fickleflight_grupo7.holders.FlightHolder
 
 class FlightAdapter(private val flights: MutableList<Flight>) : RecyclerView.Adapter<FlightHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FlightHolder {
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.recycler_flight_results, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.flight_item, parent, false)
         return FlightHolder(view)
     }
 

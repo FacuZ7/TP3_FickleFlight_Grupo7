@@ -18,7 +18,7 @@ class SearchResultFragment : Fragment() {
 
     lateinit var view3: View
     lateinit var recycler: RecyclerView
-    lateinit var backButton: Button
+    //lateinit var backButton: Button
 
     private var flights: MutableList<Flight> = ArrayList()
 
@@ -33,8 +33,8 @@ class SearchResultFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         view3 = inflater.inflate(R.layout.recycler_flight_results, container, false)
-        recycler = view3.findViewById(R.id.flight_recycler_view)
-        backButton = view3.findViewById(R.id.flight_button_back)
+        recycler = view3.findViewById(R.id.recycler_flights_result)
+        //backButton = view3.findViewById(R.id.flight_button_back)
 
 
         val airport1 = Airport(
@@ -131,18 +131,13 @@ class SearchResultFragment : Fragment() {
         return view3
     }
 
-    override fun onStart() {
-        super.onStart()
-        backButton.setOnClickListener(View.OnClickListener {
-            val action = SearchResultFragmentDirections.actionSearchFragmentToSearchResultFragment()
-            view3.findNavController().navigate(action)
-        })
+    //override fun onStart() {
+    //super.onStart()
+    //backButton.setOnClickListener(View.OnClickListener {
+    //val action = SearchResultFragmentDirections.actionSearchFragmentToSearchResultFragment()
+    //     view3.findNavController().navigate(action)
+    // })
 
 
-    }
-
-
-
-
-
+    //}
 }
