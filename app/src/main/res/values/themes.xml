@@ -1,9 +1,34 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.TP3_FickleFlight_Grupo7" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Base.Theme.TP3_FickleFlight_Grupo7" parent="Theme.AppCompat.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/light_gray</item>
+        <item name="colorPrimaryVariant">@color/white</item>
+        <item name="colorPrimaryDark">@color/black</item>
+        <item name="colorAccent">@color/blue</item>
+
+        <item name="android:windowBackground">@color/light_gray</item>
+        <item name="buttonStyle">@style/MyButtonStyle</item>
+        <item name="bottomNavigationStyle">@style/BottomNavigationViewStyle</item>
     </style>
 
-    <style name="Theme.TP3_FickleFlight_Grupo7" parent="Base.Theme.TP3_FickleFlight_Grupo7" />
+    <style name="Theme.TP3_FickleFlight_Grupo7" parent="Base.Theme.TP3_FickleFlight_Grupo7"/>
+
+    <style name="BottomNavigationViewStyle" parent="Widget.Design.BottomNavigationView">
+        <!-- Fondo blanco -->
+        <item name="android:background">@color/white</item>
+        <!-- Texto gris -->
+        <item name="itemTextColor">@color/gray</item>
+        <!-- Color del ícono activo en azul -->
+        <item name="itemIconTint">@color/gray</item>
+        <!-- Texto activo en azul -->
+        <item name="android:textColorPrimary">@color/blue</item>
+    </style>
+
+
+
+    <style name="MyButtonStyle" parent="Widget.AppCompat.Button">
+        <item name="android:backgroundTint">@color/yellow</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
 </resources>
