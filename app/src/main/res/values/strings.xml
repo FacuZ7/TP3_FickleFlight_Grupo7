@@ -17,6 +17,20 @@
     <!-- Flight Card -->
     <string name="airline_logo">Airline logo</string>
     <string name="flight_duration">Flight duration</string>
+    <string name="buscar">Buscar</string>
+    <string name="date">Date</string>
+    <string name="select_arrival">Select arrival</string>
+    <string name="one_way">One Way</string>
+    <string name="round_trip">Round Trip</string>
+    <string name="from">From</string>
+    <string name="departure_city">Departure City</string>
+    <string name="to">To</string>
+    <string name="destination_city">Destination City</string>
+    <string name="departure_date">Departure Date</string>
+    <string name="select_date">Select Date</string>
+    <string name="search">Search</string>
+    <string name="passengers">Passengers</string>
+    <string name="classtype">Class</string>
 
 
 </resources>
