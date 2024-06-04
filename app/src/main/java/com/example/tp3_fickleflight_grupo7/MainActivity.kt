@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
 
 
         // Inicialización de la Toolbar
-        toolbar = findViewById(R.id.toolbar)
+        toolbar = findViewById(R.id.material_toolbar)
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
 
@@ -64,21 +64,6 @@ class MainActivity : AppCompatActivity() {
         toolbar.setNavigationOnClickListener {
             drawerLayout.openDrawer(GravityCompat.START)
         }
-    /*
-        navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host) as NavHostFragment
-        drawerLayout = findViewById(R.id.drawer_layout)
-        navigationView = findViewById(R.id.drawer_navigation_view)
-
-        //setupDrawerLayout()
-        bottomNavView = findViewById(R.id.bottom_bar)
-        NavigationUI.setupWithNavController(bottomNavView, navHostFragment.navController)
-
-
-        toolbar= findViewById(R.id.toolbar)
-        setSupportActionBar(toolbar)
-        supportActionBar?.setDisplayShowTitleEnabled(false)
-
-    */
 
     }
 
