@@ -39,4 +39,11 @@
         android:name="com.example.tp3_fickleflight_grupo7.fragments.SearchResultFragment"
         android:label="fragment_search_result"
         tools:layout="@layout/recycler_flight_results" />
+
+    <fragment
+        android:id="@+id/user_profile"
+        android:name="com.example.tp3_fickleflight_grupo7.fragments.UserProfileFragment"
+        android:label="fragment_search_result"
+        tools:layout="@layout/fragment_user_profile" />
+
 </navigation>
