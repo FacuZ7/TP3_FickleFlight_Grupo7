@@ -35,6 +35,9 @@
     <string name="visa_discount_text">Use your VISA credit or debit card with any transaction and get 25% discount instantly!</string>
     <string name="mastercard_title">Get 20% discount with your Master credit cards</string>
     <string name="mastercard_text">Use your mastercard with any transaction and get 20% discount instantly!</string>
+    <string name="flight_icon">Flight Icon</string>
+    <string name="trending_destinations">Trending Destinations</string>
+    <string name="offers">Offers</string>
 
 
 </resources>

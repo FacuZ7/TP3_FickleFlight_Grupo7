@@ -6,11 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.NumberPicker
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
-import com.example.tp3_fickleflight_grupo7.MainActivity
 import com.example.tp3_fickleflight_grupo7.R
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.textfield.TextInputEditText
@@ -36,11 +34,6 @@ class SearchFragment : Fragment() {
         fragment = inflater.inflate(R.layout.fragment_search, container, false)
         btnSearch = fragment.findViewById(R.id.search_button)
         val datePickerButton = fragment.findViewById<TextInputEditText>(R.id.date_picker_button)
-        val passengerCount = fragment.findViewById<NumberPicker>(R.id.passenger_count)
-
-
-        passengerCount.minValue = 1
-        passengerCount.maxValue = 10
         btnSearch.setOnClickListener{
             val action = SearchFragmentDirections.actionSearchToSearchResultFragment()
             fragment.findNavController().navigate(action)
