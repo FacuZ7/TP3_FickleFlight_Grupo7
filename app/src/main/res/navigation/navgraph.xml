@@ -19,7 +19,7 @@
         android:id="@+id/offers"
         android:name="com.example.tp3_fickleflight_grupo7.fragments.OffersFragment"
         android:label="fragment_offers"
-        tools:layout="@layout/fragment_offers" />
+        tools:layout="@layout/fragment_offers_recycle" />
     <fragment
         android:id="@+id/profile"
         android:name="com.example.tp3_fickleflight_grupo7.fragments.ProfileFragment"
