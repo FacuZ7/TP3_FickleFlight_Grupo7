@@ -15,7 +15,7 @@ navigationUiKtx = "2.7.7"
 drawerlayout = "1.2.0"
 
 retrofit = "2.11.0"
-=======
+
 preferenceKtx = "1.2.1"
 
 
@@ -35,7 +35,7 @@ androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation
 androidx-drawerlayout = { group = "androidx.drawerlayout", name = "drawerlayout", version.ref = "drawerlayout" }
 
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
-=======
+
 androidx-preference-ktx = { group = "androidx.preference", name = "preference-ktx", version.ref = "preferenceKtx" }
 
 

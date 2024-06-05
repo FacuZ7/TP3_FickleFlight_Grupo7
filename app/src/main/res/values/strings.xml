@@ -31,6 +31,10 @@
     <string name="search">Search</string>
     <string name="passengers">Passengers</string>
     <string name="classtype">Class</string>
+    <string name="visa_discount">25% discount with your VISA credit or debit cards</string>
+    <string name="visa_discount_text">Use your VISA credit or debit card with any transaction and get 25% discount instantly!</string>
+    <string name="mastercard_title">Get 20% discount with your Master credit cards</string>
+    <string name="mastercard_text">Use your mastercard with any transaction and get 20% discount instantly!</string>
 
 
 </resources>
