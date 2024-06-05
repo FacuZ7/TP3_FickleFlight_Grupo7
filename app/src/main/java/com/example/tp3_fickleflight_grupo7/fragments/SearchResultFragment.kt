@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.tp3_fickleflight_grupo7.MainActivity
 import com.example.tp3_fickleflight_grupo7.R
 import com.example.tp3_fickleflight_grupo7.adapter.FlightAdapter
 import com.example.tp3_fickleflight_grupo7.entities.BestFlight
@@ -111,14 +112,4 @@ class SearchResultFragment : Fragment() {
     }
 
 
-
-    //override fun onStart() {
-    //super.onStart()
-    //backButton.setOnClickListener(View.OnClickListener {
-    //val action = SearchResultFragmentDirections.actionSearchFragmentToSearchResultFragment()
-    //     view3.findNavController().navigate(action)
-    // })
-
-
-    //}
 }

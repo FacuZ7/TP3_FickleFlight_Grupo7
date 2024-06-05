@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.appbar.AppBarLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/appbar_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/material_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="?attr/colorPrimary"
+        >
+        <!-- Menu Hamburguesa -->
+        <ImageView
+            android:id="@+id/menu_hamburguesa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:src="@drawable/ic_hamburguer" />
+
+        <!-- Logo -->
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/toolbar_appname"
+            />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardv_user_photo"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:cardCornerRadius="50dp"
+            android:layout_marginRight="10dp"
+            android:layout_gravity="end">
+
+        <!-- User Photo on the right -->
+            <ImageView
+                android:id="@+id/user_photo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/profile_pic_macy_johnson" />
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- Icono de tres puntos para menu adicional -->
+        <ImageView
+            android:id="@+id/menu_tres_puntos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:src="@drawable/ic_options"
+            android:layout_marginRight="15dp"
+            android:visibility="gone"/>
+
+        <ImageView
+            android:id="@+id/flecha_atras"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:src="@drawable/ic_back_arrow"
+            android:visibility="gone"/>
+
+    </com.google.android.material.appbar.MaterialToolbar>
+
+</com.google.android.material.appbar.AppBarLayout>
