@@ -10,6 +10,7 @@ import android.widget.NumberPicker
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+import com.example.tp3_fickleflight_grupo7.MainActivity
 import com.example.tp3_fickleflight_grupo7.R
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.textfield.TextInputEditText
@@ -72,4 +73,5 @@ class SearchFragment : Fragment() {
         }
 
     }
+
 }

@@ -1,8 +1,11 @@
 package com.example.tp3_fickleflight_grupo7
 
 import android.os.Bundle
+import android.view.View
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.cardview.widget.CardView
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.fragment.NavHostFragment
@@ -18,10 +21,14 @@ class MainActivity : AppCompatActivity() {
     private lateinit var bottomNavView : BottomNavigationView
     private lateinit var navHostFragment : NavHostFragment
     private lateinit var drawerLayout: DrawerLayout
-    private lateinit var navigationView: NavigationView
     private lateinit var appBarConfiguration: AppBarConfiguration
-
     private lateinit var toolbar : Toolbar
+
+    private lateinit var menuHamburguesa: ImageView
+    private lateinit var logo: ImageView
+    private lateinit var fotoPerfil: CardView
+    private lateinit var menuTresPuntos: ImageView
+    private lateinit var flechaAtras: ImageView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,6 +40,14 @@ class MainActivity : AppCompatActivity() {
         toolbar = findViewById(R.id.material_toolbar)
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
+
+        //inicialización de variables de toolbar
+
+        menuHamburguesa = findViewById(R.id.menu_hamburguesa)
+        logo = findViewById(R.id.logo)
+        fotoPerfil = findViewById(R.id.cardv_user_photo)
+        menuTresPuntos = findViewById(R.id.menu_tres_puntos)
+        flechaAtras = findViewById(R.id.flecha_atras)
 
         // Inicialización del DrawerLayout
         drawerLayout = findViewById(R.id.drawer_layout)
@@ -46,30 +61,37 @@ class MainActivity : AppCompatActivity() {
         // Inicialización del NavHostFragment
         navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host) as NavHostFragment
 
-        // Configuración del AppBarConfiguration
-        appBarConfiguration = AppBarConfiguration(
-            setOf(R.id.user_profile),
-            drawerLayout
-        )
         // Configuración del NavigationUI con el BottomNavigationView y el NavController
         NavigationUI.setupWithNavController(bottomNavView, navHostFragment.navController)
 
         // Configuración del NavigationUI con el NavigationView y el NavController
         NavigationUI.setupWithNavController(navView, navHostFragment.navController)
 
-        // Configuración del NavigationUI con la Toolbar y el NavController
-        NavigationUI.setupActionBarWithNavController(this, navHostFragment.navController, appBarConfiguration)
 
-        // Configuración del ícono del menú hamburguesa
-        toolbar.setNavigationOnClickListener {
+        menuHamburguesa.setOnClickListener {
             drawerLayout.openDrawer(GravityCompat.START)
+        }
+
+        flechaAtras.setOnClickListener {
+            onBackPressed()
         }
 
     }
 
-    override fun onSupportNavigateUp(): Boolean {
-        val navController = navHostFragment.navController
-        return NavigationUI.navigateUp(navController, appBarConfiguration) || super.onSupportNavigateUp()
+    fun mostrarToolbarConAtras(mostrar: Boolean) {
+        if (mostrar) {
+            menuHamburguesa.visibility = View.GONE
+            logo.visibility = View.GONE
+            fotoPerfil.visibility = View.GONE
+            flechaAtras.visibility = View.VISIBLE
+            menuTresPuntos.visibility = View.VISIBLE
+        } else {
+            menuHamburguesa.visibility = View.VISIBLE
+            logo.visibility = View.VISIBLE
+            fotoPerfil.visibility = View.VISIBLE
+            flechaAtras.visibility = View.GONE
+            menuTresPuntos.visibility = View.GONE
+        }
     }
 
     override fun onBackPressed() {
