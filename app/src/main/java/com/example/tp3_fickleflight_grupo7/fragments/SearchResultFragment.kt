@@ -1,18 +1,23 @@
 package com.example.tp3_fickleflight_grupo7.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tp3_fickleflight_grupo7.R
 import com.example.tp3_fickleflight_grupo7.adapter.FlightAdapter
-import com.example.tp3_fickleflight_grupo7.entities.Airport
-import com.example.tp3_fickleflight_grupo7.entities.Flight
+import com.example.tp3_fickleflight_grupo7.entities.BestFlight
+import com.example.tp3_fickleflight_grupo7.entities.FlightResponse
+import com.example.tp3_fickleflight_grupo7.interfaces.FlightApi
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 class SearchResultFragment : Fragment() {
 
@@ -20,10 +25,11 @@ class SearchResultFragment : Fragment() {
     lateinit var recycler: RecyclerView
     //lateinit var backButton: Button
 
-    private var flights: MutableList<Flight> = ArrayList()
+    private var flights: MutableList<BestFlight> = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        updateFlights()
 
     }
 
@@ -36,100 +42,75 @@ class SearchResultFragment : Fragment() {
         recycler = view3.findViewById(R.id.recycler_flights_result)
         //backButton = view3.findViewById(R.id.flight_button_back)
 
+        val retrofit = Retrofit.Builder()
+            .baseUrl("https://d9811bf4-5e67-4a8c-bdcf-603cbbfc0275.mock.pstmn.io/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
 
-        val airport1 = Airport(
-            airport_id = "LIS",
-            airport_name = "Lisbon Airport",
-            time = "10:00",
-        )
-        val airport2 = Airport(
-            airport_id = "MAD",
-            airport_name = "Madrid Airport",
-            time = "12:30",
-        )
+        val flightApi = retrofit.create(FlightApi::class.java)
 
-        val airport3 = Airport(
-            airport_id = "EZE",
-            airport_name = "Ezeiza Airport",
-            time = "16:00",
-        )
+        flightApi.getFlights().enqueue(object : Callback<FlightResponse> {
+            override fun onResponse(call: Call<FlightResponse>, response: Response<FlightResponse>) {
+                if (response.isSuccessful) {
+                    val flightResponse = response.body()
+                    if (flightResponse != null ) {
+                        flights = flightResponse.best_flights.toMutableList()
+                        recycler.adapter = FlightAdapter(flights)
+                        recycler.adapter?.notifyDataSetChanged()
+                    } else {
+                        Log.e("Error", "Response body or flights is null")
+                    }
+                }
+            }
 
-        val airport4 = Airport(
-            airport_id = "JFK",
-            airport_name = "John F. Kennedy Airport",
-            time = "20:00",
-        )
+            override fun onFailure(call: Call<FlightResponse>, t: Throwable) {
+                Log.e("Error", t.message.toString())
+            }
 
-        val flight1 = Flight(
-            departure_airport = airport1,
-            arrival_airport = airport2,
-            duration = "2h 30m",
-            airplane = "Boeing 737",
-            airline = "Iberia",
-            logo = "R.drawable.airline_default",
-            travel_class = "Economy",
-            flight_number = "IB 1234",
-            legroom = "Standard",
-            extensions = listOf("In-flight meal", "Wi-Fi", "Entertainment")
-
-        )
-
-        val flight2 = Flight(
-            departure_airport = airport3,
-            arrival_airport = airport4,
-            duration = "10h 30m",
-            airplane = "Airbus A380",
-            airline = "American Airlines",
-            logo = "R.drawable.airline_default",
-            travel_class = "Business",
-            flight_number = "AA 5678",
-            legroom = "Extra",
-            extensions = listOf("In-flight meal", "Wi-Fi", "Entertainment", "Lounge access")
-
-        )
-
-        val flight3 = Flight(
-            departure_airport = airport2,
-            arrival_airport = airport3,
-            duration = "1h 30m",
-            airplane = "Airbus A320",
-            airline = "Iberia",
-            logo = "R.drawable.airline_default",
-            travel_class = "Economy",
-            flight_number = "IB 5678",
-            legroom = "Standard",
-            extensions = listOf("In-flight meal", "Wi-Fi")
-
-        )
-
-        val flight4 = Flight(
-            departure_airport = airport4,
-            arrival_airport = airport1,
-            duration = "8h 30m",
-            airplane = "Boeing 777",
-            airline = "American Airlines",
-            logo = "R.drawable.airline_default",
-            travel_class = "Business",
-            flight_number = "AA 1234",
-            legroom = "Extra",
-            extensions = listOf("In-flight meal", "Wi-Fi", "Entertainment", "Lounge access")
-
-        )
-
-        for (i in 1..10) {
-            flights.add(flight1)
-            flights.add(flight2)
-            flights.add(flight3)
-            flights.add(flight4)
-        }
-
+        } )
         recycler.setHasFixedSize(true)
         val linearLayoutManager = LinearLayoutManager(context)
         val flightAdapter = FlightAdapter(flights)
         recycler.layoutManager = linearLayoutManager
         recycler.adapter = flightAdapter
+
+
+
+
         return view3
+
+
+
     }
+
+    private fun updateFlights() {
+        val flightApi = Retrofit.Builder()
+            .baseUrl("https://d9811bf4-5e67-4a8c-bdcf-603cbbfc0275.mock.pstmn.io/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+            .create(FlightApi::class.java)
+
+        flightApi.getFlights().enqueue(object : Callback<FlightResponse> {
+            override fun onResponse(call: Call<FlightResponse>, response: Response<FlightResponse>) {
+                if (response.isSuccessful) {
+                    val flightResponse = response.body()
+                    if (flightResponse != null) {
+                        flights.clear()
+                        flights.addAll(flightResponse.best_flights)
+                        recycler.adapter?.notifyDataSetChanged()
+                    } else {
+                        Log.e("Error", "Response body or flights is null")
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<FlightResponse>, t: Throwable) {
+                Log.e("Error", t.message.toString())
+            }
+        })
+    }
+
+
 
     //override fun onStart() {
     //super.onStart()

@@ -1,6 +1,5 @@
 package com.example.tp3_fickleflight_grupo7.holders
 
-import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -30,12 +29,14 @@ class FlightHolder(v: View): RecyclerView.ViewHolder(v) {
         txtCode.text = arrivalCode
     }
 
-    fun setDuration(duration: String?, icon: String?){
+    fun setDuration(duration: Int?, icon: String?){
         val txt: TextView = view1.findViewById(R.id.flight_duration)
         val img: ImageView = view1.findViewById(R.id.duration_icon)
-        txt.text = duration
+        txt.text = duration.toString()
+
         if (icon != null) {
-            img.setImageResource(icon.toInt())
+            val resourceId = view1.context.resources.getIdentifier(icon, "drawable", view1.context.packageName)
+            img.setImageResource(resourceId)
         }
     }
 
