@@ -14,7 +14,11 @@
         android:id="@+id/search"
         android:name="com.example.tp3_fickleflight_grupo7.fragments.SearchFragment"
         android:label="fragment_search"
-        tools:layout="@layout/fragment_search" />
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_search_to_searchResultFragment"
+            app:destination="@id/searchResultFragment" />
+    </fragment>
     <fragment
         android:id="@+id/offers"
         android:name="com.example.tp3_fickleflight_grupo7.fragments.OffersFragment"
@@ -26,14 +30,7 @@
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
 
-    <action
-        android:id="@+id/action_searchFragment_to_searchResultFragment"
-        app:destination="@id/searchResultFragment" />
-
-    <action
-        android:id="@+id/goToSearch"
-        app:destination="@id/search" />
-
+    
     <fragment
         android:id="@+id/searchResultFragment"
         android:name="com.example.tp3_fickleflight_grupo7.fragments.SearchResultFragment"

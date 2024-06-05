@@ -5,6 +5,8 @@ import android.view.View
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.preference.PreferenceManager
 import androidx.cardview.widget.CardView
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
@@ -76,6 +78,16 @@ class MainActivity : AppCompatActivity() {
             onBackPressed()
         }
 
+    }
+
+    fun applyTheme() {
+        val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
+        val darkMode = sharedPreferences.getBoolean("night_mode", false)
+        if (darkMode) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        }
     }
 
     fun mostrarToolbarConAtras(mostrar: Boolean) {

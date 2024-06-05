@@ -42,7 +42,7 @@ class SearchFragment : Fragment() {
         passengerCount.minValue = 1
         passengerCount.maxValue = 10
         btnSearch.setOnClickListener{
-            val action = SearchFragmentDirections.actionSearchFragmentToSearchResultFragment()
+            val action = SearchFragmentDirections.actionSearchToSearchResultFragment()
             fragment.findNavController().navigate(action)
         }
         datePickerButton.setOnClickListener {
@@ -67,8 +67,8 @@ class SearchFragment : Fragment() {
         super.onStart()
 
         btnSearch.setOnClickListener{
-            val action = SearchFragmentDirections.actionSearchFragmentToSearchResultFragment()
 
+            val action = SearchFragmentDirections.actionSearchToSearchResultFragment()
             fragment.findNavController().navigate(action)
         }
 
