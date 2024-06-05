@@ -1,40 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    app:cardCornerRadius="8dp"
+    android:layout_width="match_parent"
+    android:layout_height="180dp"
+    app:cardCornerRadius="10dp"
+    android:layout_margin="5dp"
+    android:elevation="10dp"
     >
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="200dp"
-        android:layout_margin="12dp"
-        android:background="@drawable/paris"
-        >
-
-        <TextView
-            android:id="@+id/title"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentBottom="true"
-            android:text="Paris"
-            android:textColor="@android:color/white"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:padding="16dp" />
+            >
 
-        <TextView
-            android:id="@+id/price"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:text="From $1299"
-            android:textColor="@android:color/white"
-            android:textSize="18sp"
-            android:padding="16dp" />
-    </RelativeLayout>
+        <ImageView
+            android:id="@+id/iv_paris_card"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/paris"
+            android:background="@color/white"
+            android:scaleType="centerCrop"
+            />
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentBottom="true"
+                    android:padding="16dp"
+                    android:text="Paris"
+                    android:textColor="@android:color/white"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+
+                <TextView
+                    android:id="@+id/label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:paddingRight="16dp"
+                    android:paddingBottom="16dp"
+                    android:text="From"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toTopOf="@+id/price"
+                    app:layout_constraintEnd_toEndOf="@+id/iv_paris_card" />
+
+                <TextView
+                    android:id="@+id/price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:paddingRight="16dp"
+                    android:paddingBottom="16dp"
+                    android:text="$1299"
+                    android:textColor="@android:color/white"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/iv_paris_card"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
 </androidx.cardview.widget.CardView>
