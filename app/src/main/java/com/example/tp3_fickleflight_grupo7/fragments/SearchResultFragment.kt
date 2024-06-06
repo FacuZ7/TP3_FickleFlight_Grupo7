@@ -1,5 +1,6 @@
 package com.example.tp3_fickleflight_grupo7.fragments
 
+import FlightAdapter
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -9,7 +10,6 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tp3_fickleflight_grupo7.R
-import com.example.tp3_fickleflight_grupo7.adapter.FlightAdapter
 import com.example.tp3_fickleflight_grupo7.entities.BestFlight
 import com.example.tp3_fickleflight_grupo7.entities.FlightResponse
 import com.example.tp3_fickleflight_grupo7.interfaces.FlightApi
