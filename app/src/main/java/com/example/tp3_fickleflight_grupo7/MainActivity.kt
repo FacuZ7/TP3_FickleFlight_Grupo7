@@ -21,63 +21,40 @@ import com.google.android.material.navigation.NavigationView
 class MainActivity : AppCompatActivity() {
 
     private lateinit var bottomNavView : BottomNavigationView
+    private lateinit var navigationView : NavigationView
     private lateinit var navHostFragment : NavHostFragment
     private lateinit var drawerLayout: DrawerLayout
-    private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var toolbar : Toolbar
-
-    private lateinit var menuHamburguesa: ImageView
-    private lateinit var logo: ImageView
-    private lateinit var fotoPerfil: CardView
-    private lateinit var menuTresPuntos: ImageView
-    private lateinit var flechaAtras: ImageView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        setToolbar()
+        setNavigations()
+        setNavigationsSetup()
+    }
 
-        // Inicialización de la Toolbar
+    private fun setToolbar(){
         toolbar = findViewById(R.id.material_toolbar)
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
+    }
 
-        //inicialización de variables de toolbar
-
-        menuHamburguesa = findViewById(R.id.menu_hamburguesa)
-        logo = findViewById(R.id.logo)
-        fotoPerfil = findViewById(R.id.cardv_user_photo)
-        menuTresPuntos = findViewById(R.id.menu_tres_puntos)
-        flechaAtras = findViewById(R.id.flecha_atras)
-
-        // Inicialización del DrawerLayout
+    private fun setNavigations(){
         drawerLayout = findViewById(R.id.drawer_layout)
-
-        // Inicialización del NavigationView
-        val navView: NavigationView = findViewById(R.id.drawer_navigation_view)
-
-        // Inicialización del BottomNavigationView
+        navigationView = findViewById(R.id.drawer_navigation_view)
         bottomNavView = findViewById(R.id.bottom_bar)
-
-        // Inicialización del NavHostFragment
         navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host) as NavHostFragment
+    }
 
-        // Configuración del NavigationUI con el BottomNavigationView y el NavController
-        NavigationUI.setupWithNavController(bottomNavView, navHostFragment.navController)
+    private fun setNavigationsSetup(){
+        val navController = navHostFragment.navController
+        navigationView.setupWithNavController(navController)
 
-        // Configuración del NavigationUI con el NavigationView y el NavController
-        NavigationUI.setupWithNavController(navView, navHostFragment.navController)
-
-
-        menuHamburguesa.setOnClickListener {
-            drawerLayout.openDrawer(GravityCompat.START)
-        }
-
-        flechaAtras.setOnClickListener {
-            onBackPressed()
-        }
-
+        NavigationUI.setupActionBarWithNavController(this,navController,drawerLayout)
+        NavigationUI.setupWithNavController(bottomNavView, navController)
     }
 
     fun applyTheme() {
@@ -90,27 +67,23 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun mostrarToolbarConAtras(mostrar: Boolean) {
+    fun toolbarNoLogo(mostrar: Boolean) {
+        var logo: ImageView = findViewById(R.id.logo)
+        var fotoPerfil: CardView = findViewById(R.id.cardv_user_photo)
+        var menuTresPuntos: ImageView = findViewById(R.id.menu_tres_puntos)
+
         if (mostrar) {
-            menuHamburguesa.visibility = View.GONE
             logo.visibility = View.GONE
             fotoPerfil.visibility = View.GONE
-            flechaAtras.visibility = View.VISIBLE
             menuTresPuntos.visibility = View.VISIBLE
         } else {
-            menuHamburguesa.visibility = View.VISIBLE
             logo.visibility = View.VISIBLE
             fotoPerfil.visibility = View.VISIBLE
-            flechaAtras.visibility = View.GONE
             menuTresPuntos.visibility = View.GONE
         }
     }
 
-    override fun onBackPressed() {
-        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-            drawerLayout.closeDrawer(GravityCompat.START)
-        } else {
-            super.onBackPressed()
-        }
+    override fun onSupportNavigateUp(): Boolean {
+        return NavigationUI.navigateUp(navHostFragment.navController,drawerLayout)
     }
 }

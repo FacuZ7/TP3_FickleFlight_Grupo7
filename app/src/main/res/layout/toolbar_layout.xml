@@ -11,13 +11,6 @@
         android:layout_height="?actionBarSize"
         android:background="?attr/colorPrimary"
         >
-        <!-- Menu Hamburguesa -->
-        <ImageView
-            android:id="@+id/menu_hamburguesa"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:src="@drawable/ic_hamburguer" />
 
         <!-- Logo -->
         <ImageView
@@ -53,14 +46,6 @@
             android:layout_gravity="end"
             android:src="@drawable/ic_options"
             android:layout_marginRight="15dp"
-            android:visibility="gone"/>
-
-        <ImageView
-            android:id="@+id/flecha_atras"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:src="@drawable/ic_back_arrow"
             android:visibility="gone"/>
 
     </com.google.android.material.appbar.MaterialToolbar>
