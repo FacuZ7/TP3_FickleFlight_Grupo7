@@ -68,7 +68,8 @@ class SearchFragment : Fragment() {
                     "20% discount for mastercard users",
                     "Limited time offer!",
                     R.drawable.mastercard_card,
-                    null
+                    null,
+                    false
                 )
             )
             add(
@@ -76,7 +77,8 @@ class SearchFragment : Fragment() {
                     "25% discount with your Visa credit cards",
                     "Limited time offer!",
                     R.drawable.visa_card,
-                    null
+                    null,
+                    false
                 )
             )
 
