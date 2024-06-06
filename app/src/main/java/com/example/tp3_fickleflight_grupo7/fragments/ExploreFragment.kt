@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.navigation.fragment.findNavController
 import com.example.tp3_fickleflight_grupo7.MainActivity
 import com.example.tp3_fickleflight_grupo7.R
 import com.example.tp3_fickleflight_grupo7.adapter.DestinationAdapter
@@ -51,7 +52,11 @@ class ExploreFragment : Fragment() {
 
         val recyclerViewDestinations = view.findViewById<RecyclerView>(R.id.recycler_view_destinations)
         recyclerViewDestinations.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        val destinationAdapter = DestinationAdapter(destinations)
+
+        val destinationAdapter = DestinationAdapter(destinations) { destination ->
+            val action = ExploreFragmentDirections.actionExploreToDestinationDetailsFragment(1) //no llegamos a hacer que muestre la vista correspondiente
+            findNavController().navigate(action)
+        }
         recyclerViewDestinations.adapter = destinationAdapter
 
         val offerAdapter = OfferAdapter(offers, true)
