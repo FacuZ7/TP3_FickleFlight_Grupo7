@@ -56,24 +56,23 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_view_destinations"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="130dp"
                 android:orientation="horizontal"
-                android:scrollbars="horizontal"
-                android:padding="8dp" />
+                android:padding="8dp"
+                android:scrollbars="horizontal" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:padding="8dp"
                 android:text="@string/offers"
                 android:textSize="18sp"
-                android:textStyle="bold"
-                android:padding="8dp"
-                android:layout_marginTop="90dp"/>
+                android:textStyle="bold" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_view_offers_horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="112dp"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:padding="8dp"
                 />
