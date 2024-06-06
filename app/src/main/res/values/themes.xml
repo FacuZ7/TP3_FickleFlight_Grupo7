@@ -8,6 +8,7 @@
 
         <item name="colorAccent">@color/blue</item>
         <item name ="colorButtonNormal">@color/yellow</item>
+        <item name="android:textColor">@color/black</item>
 
         <item name="android:windowBackground">@color/light_gray</item>
         <item name="materialButtonStyle">@style/MyButtonStyle</item>
@@ -17,7 +18,7 @@
     <style name="Theme.TP3_FickleFlight_Grupo7" parent="Base.Theme.TP3_FickleFlight_Grupo7"/>
 
     <style name="calendarButtonStyle" parent="Widget.AppCompat.Button.ButtonBar.AlertDialog">
-        <!-- Customize your button here. -->
+
         <item name="android:textColor">@color/black</item>
     </style>
 
@@ -33,9 +34,18 @@
     </style>
 
 
-
     <style name="MyButtonStyle" parent="Widget.MaterialComponents.Button">
         <item name="backgroundTint">@color/yellow</item>
         <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="CalendarTheme" parent="ThemeOverlay.MaterialComponents.MaterialCalendar">
+
+        <item name="colorOnPrimary">@color/black</item>
+        <item name="itemTextColor">@color/black</item>
+        <item name="backgroundColor">@color/light_blue</item>
+        <item name="colorPrimary">@color/blue</item>
+
+        <item name="colorOnSurface">@color/black</item>
     </style>
 </resources>
