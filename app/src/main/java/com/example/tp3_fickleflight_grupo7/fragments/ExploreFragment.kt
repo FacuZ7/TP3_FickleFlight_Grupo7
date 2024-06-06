@@ -1,5 +1,6 @@
 package com.example.tp3_fickleflight_grupo7.fragments
 
+import SharedPreferencesModule
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,8 +14,14 @@ import com.example.tp3_fickleflight_grupo7.adapter.DestinationAdapter
 import com.example.tp3_fickleflight_grupo7.adapter.OfferAdapter
 import com.example.tp3_fickleflight_grupo7.entities.Destination
 import com.example.tp3_fickleflight_grupo7.entities.Offer
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
+
+@AndroidEntryPoint
 
 class ExploreFragment : Fragment() {
+    @Inject
+    lateinit var sharedPreferencesModule: SharedPreferencesModule
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,7 +58,7 @@ class ExploreFragment : Fragment() {
 
         val recyclerViewDestinations = view.findViewById<RecyclerView>(R.id.recycler_view_destinations)
         recyclerViewDestinations.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        val destinationAdapter = DestinationAdapter(destinations)
+        val destinationAdapter = DestinationAdapter(destinations, sharedPreferencesModule)
         recyclerViewDestinations.adapter = destinationAdapter
 
         val offerAdapter = OfferAdapter(offers, true)

@@ -2,12 +2,35 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
     id("androidx.navigation.safeargs.kotlin")
-    id("kotlin-kapt")
+
 }
 
 android {
     namespace = "com.example.tp3_fickleflight_grupo7"
     compileSdk = 34
+
+
+    packagingOptions {
+        resources {
+            excludes += "/META-INF/gradle/incremental.annotation.processors"
+            excludes += "META-INF/"
+            excludes += "okhttp3/"
+            excludes += "kotlin/"
+            excludes += "org/"
+            excludes += ".properties"
+            excludes += ".bin"
+        }
+    }
+
+    buildFeatures {
+        compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.0"
+
+    }
+
+
 
     defaultConfig {
         applicationId = "com.example.tp3_fickleflight_grupo7"
@@ -17,6 +40,11 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+    configurations {
+        all {
+            exclude(group = "org.jetbrains", module = "annotations")
+        }
     }
 
     buildTypes {
@@ -55,18 +83,17 @@ dependencies {
     implementation(libs.gson)
     implementation(libs.converter.gson)
     implementation(libs.glide)
-    kapt("com.github.bumptech.glide:compiler:4.12.0")
+    implementation(libs.compiler)
 
 
 
-    val room_version = "2.4.1"
-    val hilt_version = "2.40.5"
 
     // For Room
-    implementation("androidx.room:room-runtime:$room_version")
-    kapt("androidx.room:room-compiler:$room_version")
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.compiler)
 
     // For Hilt
-    implementation("com.google.dagger:hilt-android:$hilt_version")
-    kapt("com.google.dagger:hilt-android-compiler:$hilt_version")
+    implementation(libs.hilt.android)
+    implementation(libs.hilt.android.compiler)
+    implementation("androidx.compose.runtime:runtime:1.5.0")
 }

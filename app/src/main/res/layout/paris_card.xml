@@ -73,6 +73,7 @@
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="16dp"
                     android:background="@drawable/ic_favorite"
+                    android:tint="@color/toggle_button_tint"
                     android:textOff=""
                     android:textOn=""
                     app:layout_constraintEnd_toEndOf="parent"
