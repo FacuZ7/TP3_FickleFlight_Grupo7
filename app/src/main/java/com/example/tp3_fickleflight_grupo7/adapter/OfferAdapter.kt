@@ -1,9 +1,7 @@
 package com.example.tp3_fickleflight_grupo7.adapter
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tp3_fickleflight_grupo7.R
 import com.example.tp3_fickleflight_grupo7.entities.Offer
@@ -27,7 +25,7 @@ class OfferAdapter(private val items: MutableList<Offer>,
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val item = items[position]
 
-        (holder as OfferHolder).bind(item.title, item.text, item.leftImageId, item.rightIconId)
+        (holder as OfferHolder).bind(item.title, item.text, item.leftImageId, item.rightIconId, item.isLimitedOffer)
 
     }
 

@@ -35,8 +35,8 @@ class OffersFragment : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(context)
 
         val offers = mutableListOf<Offer>().apply {
-            add(Offer(getString(R.string.mastercard_title), getString(R.string.mastercard_text), R.drawable.mastercard_card, R.drawable.vector_1))
-            add(Offer(getString(R.string.visa_discount), getString(R.string.visa_discount_text), R.drawable.visa_card, R.drawable.vector_1))
+            add(Offer(getString(R.string.mastercard_title), getString(R.string.mastercard_text), R.drawable.mastercard_card, R.drawable.vector_1, false))
+            add(Offer(getString(R.string.visa_discount), getString(R.string.visa_discount_text), R.drawable.visa_card, R.drawable.vector_1, true))
 
         }
         offerAdapter = OfferAdapter(offers, false)
