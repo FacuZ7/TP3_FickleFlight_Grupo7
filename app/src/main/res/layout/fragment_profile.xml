@@ -144,7 +144,7 @@
                 android:layout_marginStart="5dp"
                 android:text="NEW"
                 android:textSize="12sp"
-                android:textColor="#4CAF50"
+                android:textColor="@color/white"
                 android:background="@drawable/new_label_background"
                 android:padding="2dp" />
         </LinearLayout>
@@ -162,7 +162,7 @@
             <ImageView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:src="@drawable/ic_settings" />
+                android:src="@drawable/icon_settings" />
 
             <TextView
                 android:id="@+id/profile_settings_button"
