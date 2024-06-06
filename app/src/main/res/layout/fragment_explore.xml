@@ -56,10 +56,9 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_view_destinations"
                 android:layout_width="match_parent"
-                android:layout_height="130dp"
+                android:layout_height="160dp"
                 android:orientation="horizontal"
-                android:padding="8dp"
-                android:scrollbars="horizontal" />
+                android:padding="8dp" />
 
             <TextView
                 android:layout_width="match_parent"
