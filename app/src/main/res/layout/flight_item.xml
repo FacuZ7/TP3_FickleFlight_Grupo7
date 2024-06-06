@@ -22,21 +22,19 @@
             android:contentDescription="@string/airline_logo"
             android:src="@drawable/airline_default"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <!-- Airline name -->
         <TextView
             android:id="@+id/airline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="4dp"
             android:text="United Airlines"
             android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@id/airline_logo"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="@id/airline_logo"
-            android:layout_margin="4dp"
-             />
+            app:layout_constraintStart_toEndOf="@id/airline_logo"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <!-- Flight duration icon -->
         <ImageView
@@ -46,6 +44,7 @@
             android:layout_height="30dp"
             android:contentDescription="@string/flight_duration"
             android:src="@drawable/ic_time"
+            app:layout_constraintBottom_toTopOf="@+id/arrival_code"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -54,12 +53,11 @@
             android:id="@+id/flight_duration"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="01 hr 40min"
-            app:layout_constraintEnd_toStartOf="@id/duration_icon"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="@id/duration_icon"
             android:layout_margin="4dp"
-             />
+            android:text="01 hr 40min"
+            app:layout_constraintBottom_toBottomOf="@id/duration_icon"
+            app:layout_constraintEnd_toStartOf="@id/duration_icon"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <!-- Departure airport code -->
         <TextView
@@ -67,12 +65,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="EZE"
+            android:textColor="@color/blue"
             android:textSize="24sp"
             android:textStyle="bold"
-            android:textColor="@color/blue"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/airline_logo"
-             />
+            app:layout_constraintTop_toBottomOf="@id/airline_logo" />
 
         <!-- Departure airport name -->
         <TextView
@@ -85,39 +82,42 @@
             app:layout_constraintTop_toBottomOf="@id/departure_code" />
 
         <!-- Arrival airport code -->
+
+        <!-- Arrival airport name -->
+
+        <!-- Flight path -->
+
         <TextView
             android:id="@+id/arrival_code"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="LAX"
+            android:textColor="@color/blue"
             android:textSize="24sp"
             android:textStyle="bold"
-            android:textColor="@color/blue"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/flight_duration"
-             />
+            app:layout_constraintBottom_toTopOf="@+id/arrival_name"
+            app:layout_constraintEnd_toEndOf="parent" />
 
-        <!-- Arrival airport name -->
         <TextView
             android:id="@+id/arrival_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="19dp"
             android:text="Los Angeles"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/arrival_code" />
+            app:layout_constraintBottom_toTopOf="@+id/view_details_button"
+            app:layout_constraintEnd_toEndOf="parent" />
 
-        <!-- Flight path -->
         <ImageView
             android:id="@+id/flight_path"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/flight"
-            app:layout_constraintStart_toEndOf="@id/departure_code"
-            app:layout_constraintEnd_toStartOf="@id/arrival_code"
-            app:layout_constraintTop_toTopOf="@id/departure_code"
             app:layout_constraintBottom_toBottomOf="@id/departure_code"
-            app:layout_constraintHorizontal_bias="0.5" />
+            app:layout_constraintEnd_toStartOf="@id/arrival_code"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@id/departure_code"
+            app:layout_constraintTop_toTopOf="@id/departure_code" />
 
         <!-- Class and price info -->
         <TextView
@@ -126,10 +126,10 @@
             android:layout_height="wrap_content"
             android:text="Business Class From $1128"
             android:textAlignment="center"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/view_details_button"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/departure_name"
-            app:layout_constraintBottom_toTopOf="@id/view_details_button" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/departure_name" />
 
         <!-- View details button -->
         <Button
@@ -139,9 +139,9 @@
             android:backgroundTint="@color/yellow"
             android:text="View Details"
             android:textColor="@android:color/white"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/class_price_info" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
