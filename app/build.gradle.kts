@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
     id("androidx.navigation.safeargs.kotlin")
+    id("kotlin-kapt")
 }
 
 android {
@@ -55,4 +56,3 @@ dependencies {
     implementation(libs.converter.gson)
     implementation(libs.glide)
     annotationProcessor(libs.compiler)
-}

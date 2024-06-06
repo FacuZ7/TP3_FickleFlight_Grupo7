@@ -43,12 +43,13 @@ class ExploreFragment : Fragment() {
 
         val offerAdapter = OfferAdapter(offers, true)
         recyclerView.adapter = offerAdapter
+        (activity as? MainActivity)?.toolbarNoLogo(false)
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()
 
-        // Restaurar el estado de la toolbar cuando se destruye el fragmento
         (activity as? MainActivity)?.toolbarNoLogo(true)
     }
 
