@@ -9,7 +9,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tp3_fickleflight_grupo7.MainActivity
 import com.example.tp3_fickleflight_grupo7.R
+import com.example.tp3_fickleflight_grupo7.adapter.DestinationAdapter
 import com.example.tp3_fickleflight_grupo7.adapter.OfferAdapter
+import com.example.tp3_fickleflight_grupo7.entities.Destination
 import com.example.tp3_fickleflight_grupo7.entities.Offer
 
 class ExploreFragment : Fragment() {
@@ -40,6 +42,17 @@ class ExploreFragment : Fragment() {
 
 
         }
+        val destination1 = Destination(R.drawable.boracay_philippines, "Baracay", "Philippines", "5D4N")
+        val destination2 = Destination(R.drawable.baros, "Baros", "Maldives", "7D6N")
+        val destination3 = Destination(R.drawable.bali, "Bali", "Indonesia", "3D2N")
+        val destination4 = Destination(R.drawable.palawan, "Palawan", "Philippines", "3D2N")
+        val destinations = mutableListOf(destination1, destination2, destination3, destination4)
+
+
+        val recyclerViewDestinations = view.findViewById<RecyclerView>(R.id.recycler_view_destinations)
+        recyclerViewDestinations.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        val destinationAdapter = DestinationAdapter(destinations)
+        recyclerViewDestinations.adapter = destinationAdapter
 
         val offerAdapter = OfferAdapter(offers, true)
         recyclerView.adapter = offerAdapter
