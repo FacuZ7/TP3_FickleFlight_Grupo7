@@ -15,6 +15,17 @@
 
 
         <TextView
+            android:id="@+id/offer_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/new_label_background"
+            android:padding="2dp"
+            android:text="LIMITED OFFER!"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
             android:id="@+id/card_title"
             android:layout_width="339dp"
             android:layout_height="33dp"
