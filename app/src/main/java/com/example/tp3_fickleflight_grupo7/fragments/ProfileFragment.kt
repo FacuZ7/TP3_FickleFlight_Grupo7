@@ -45,6 +45,15 @@ class ProfileFragment : Fragment() {
             .into(profileImage)
 
 
+        // Editar icono "edit" con Glide
+        val editButton: ImageButton = view.findViewById(R.id.editButton)
+
+        Glide.with(this) // reemplaza 'this' con el contexto apropiado si es necesario
+            .load(R.drawable.edit)
+            .override(65, 65) // reemplaza estos valores con el tamaño que desees
+            .into(editButton)
+
+
 
         val settingsButton = view.findViewById<TextView>(R.id.profile_settings_button)
         settingsButton.setOnClickListener {
