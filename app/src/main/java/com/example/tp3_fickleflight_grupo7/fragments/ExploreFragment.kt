@@ -31,7 +31,18 @@ class ExploreFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         // Cambiar el estado de la toolbar
+        val recyclerView = view.findViewById<RecyclerView>(R.id.recycler_view_offers_horizontal)
+        recyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        val offers= mutableListOf<Offer>().apply {
+            add(Offer("20% discount for mastercard users", "Limited time offer!", R.drawable.mastercard_card, null)  )
+            add(Offer("25% discount with your Visa credit cards", "Limited time offer!", R.drawable.visa_card, null))
 
+
+
+        }
+
+        val offerAdapter = OfferAdapter(offers, true)
+        recyclerView.adapter = offerAdapter
     }
 
     override fun onDestroyView() {
