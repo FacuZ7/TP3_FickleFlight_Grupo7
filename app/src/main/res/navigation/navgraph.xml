@@ -23,7 +23,7 @@
         android:id="@+id/offers"
         android:name="com.example.tp3_fickleflight_grupo7.fragments.OffersFragment"
         android:label="fragment_offers"
-        tools:layout="@layout/fragment_offers_recycle" />
+        tools:layout="@layout/fragment_offers" />
     <fragment
         android:id="@+id/profile"
         android:name="com.example.tp3_fickleflight_grupo7.fragments.ProfileFragment"
@@ -53,6 +53,6 @@
         android:id="@+id/settings"
         android:name="com.example.tp3_fickleflight_grupo7.fragments.SettingsFragment"
         android:label="fragment_settings"
-        tools:layout="@layout/fragment_user_profile" />
+        tools:layout="@layout/fragment_profile" />
 
 </navigation>

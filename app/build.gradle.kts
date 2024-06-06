@@ -55,5 +55,18 @@ dependencies {
     implementation(libs.gson)
     implementation(libs.converter.gson)
     implementation(libs.glide)
-    annotationProcessor(libs.compiler)
+    kapt("com.github.bumptech.glide:compiler:4.12.0")
+
+
+
+    val room_version = "2.4.1"
+    val hilt_version = "2.40.5"
+
+    // For Room
+    implementation("androidx.room:room-runtime:$room_version")
+    kapt("androidx.room:room-compiler:$room_version")
+
+    // For Hilt
+    implementation("com.google.dagger:hilt-android:$hilt_version")
+    kapt("com.google.dagger:hilt-android-compiler:$hilt_version")
 }
