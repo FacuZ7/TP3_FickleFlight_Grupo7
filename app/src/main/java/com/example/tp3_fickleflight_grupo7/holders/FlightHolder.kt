@@ -16,8 +16,8 @@ class FlightHolder(v: View): RecyclerView.ViewHolder(v) {
     }
 
     fun setDepartureAirport(departureAirport: String?, departureCode: String?) {
-        val txt: TextView = view1.findViewById(R.id.departure_name)
-        val txtCode: TextView = view1.findViewById(R.id.departure_code)
+        val txt: TextView = view1.findViewById(R.id.arrival_name)
+        val txtCode: TextView = view1.findViewById(R.id.arrival_code)
         txt.text = departureAirport
         txtCode.text = departureCode
     }
@@ -46,7 +46,7 @@ class FlightHolder(v: View): RecyclerView.ViewHolder(v) {
     }*/
 
     fun setAirline(airline: String?){
-        val txt: TextView = view1.findViewById(R.id.airline_name)
+        val txt: TextView = view1.findViewById(R.id.airline)
         txt.text = airline
     }
 
