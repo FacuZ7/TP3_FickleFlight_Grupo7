@@ -27,7 +27,7 @@
 
         <!-- Airline name -->
         <TextView
-            android:id="@+id/airline_name"
+            android:id="@+id/airline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="United Airlines"
