@@ -10,6 +10,7 @@ import androidx.preference.PreferenceManager
 import androidx.cardview.widget.CardView
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
@@ -32,6 +33,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var menuTresPuntos: ImageView
     private lateinit var flechaAtras: ImageView
 
+    private var isBackMode: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,6 +62,7 @@ class MainActivity : AppCompatActivity() {
         // Inicialización del BottomNavigationView
         bottomNavView = findViewById(R.id.bottom_bar)
 
+
         // Inicialización del NavHostFragment
         navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host) as NavHostFragment
 
@@ -77,7 +80,8 @@ class MainActivity : AppCompatActivity() {
         flechaAtras.setOnClickListener {
             onBackPressed()
         }
-
+        isBackMode = savedInstanceState?.getBoolean("isBackMode") ?: false
+        mostrarToolbarConAtras(isBackMode)
     }
 
     fun applyTheme() {
@@ -91,6 +95,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun mostrarToolbarConAtras(mostrar: Boolean) {
+        isBackMode = mostrar
         if (mostrar) {
             menuHamburguesa.visibility = View.GONE
             logo.visibility = View.GONE
@@ -104,6 +109,11 @@ class MainActivity : AppCompatActivity() {
             flechaAtras.visibility = View.GONE
             menuTresPuntos.visibility = View.GONE
         }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putBoolean("isBackMode", isBackMode)
     }
 
     override fun onBackPressed() {
