@@ -27,14 +27,14 @@ class ExploreFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         // Cambiar el estado de la toolbar
-        (activity as? MainActivity)?.mostrarToolbarConAtras(false)
+        (activity as? MainActivity)?.toolbarNoLogo(false)
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
 
         // Restaurar el estado de la toolbar cuando se destruye el fragmento
-        (activity as? MainActivity)?.mostrarToolbarConAtras(true)
+        (activity as? MainActivity)?.toolbarNoLogo(true)
     }
 
 
