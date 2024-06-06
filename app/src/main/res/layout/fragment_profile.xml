@@ -61,8 +61,7 @@
         android:layout_marginHorizontal="25dp"
         android:text="Macy Johnson"
         android:textSize="24sp"
-        android:textStyle="bold"
-        android:textColor="@color/black"/>
+        android:textStyle="bold" />
 
     <!-- User Location -->
     <TextView
@@ -84,8 +83,7 @@
         android:layout_marginTop="10dp"
         android:text="I like the beach, mountains, forest and everything about nature! :)"
         android:layout_marginHorizontal="25dp"
-        android:textSize="14sp"
-        android:textColor="@color/black"/>
+        android:textSize="14sp" />
 
     <!-- Options List -->
     <LinearLayout
@@ -145,7 +143,6 @@
                 android:layout_marginStart="5dp"
                 android:text="NEW"
                 android:textSize="12sp"
-                android:textColor="@color/white"
                 android:background="@drawable/new_label_background"
                 android:padding="2dp" />
         </LinearLayout>
