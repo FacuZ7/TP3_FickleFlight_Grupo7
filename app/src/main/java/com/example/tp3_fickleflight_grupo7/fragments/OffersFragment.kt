@@ -40,7 +40,7 @@ class OffersFragment : Fragment() {
 
 
         }
-        offerAdapter = OfferAdapter(offers)
+        offerAdapter = OfferAdapter(offers, false)
 
         recyclerView.adapter = offerAdapter
     }

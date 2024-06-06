@@ -4,5 +4,5 @@ data class Offer(
     val title: String,
     val text: String,
     val leftImageId: Int,
-    val rightIconId: Int
+    val rightIconId: Int?
 )

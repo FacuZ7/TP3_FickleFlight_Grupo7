@@ -6,12 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.NumberPicker
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
-import com.example.tp3_fickleflight_grupo7.MainActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.tp3_fickleflight_grupo7.R
+import com.example.tp3_fickleflight_grupo7.adapter.OfferAdapter
+import com.example.tp3_fickleflight_grupo7.entities.Offer
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.textfield.TextInputEditText
 import java.time.Instant
@@ -36,12 +38,7 @@ class SearchFragment : Fragment() {
         fragment = inflater.inflate(R.layout.fragment_search, container, false)
         btnSearch = fragment.findViewById(R.id.search_button)
         val datePickerButton = fragment.findViewById<TextInputEditText>(R.id.date_picker_button)
-        val passengerCount = fragment.findViewById<NumberPicker>(R.id.passenger_count)
-
-
-        passengerCount.minValue = 1
-        passengerCount.maxValue = 10
-        btnSearch.setOnClickListener{
+        btnSearch.setOnClickListener {
             val action = SearchFragmentDirections.actionSearchToSearchResultFragment()
             fragment.findNavController().navigate(action)
         }
@@ -49,16 +46,44 @@ class SearchFragment : Fragment() {
             val datePicker =
                 MaterialDatePicker.Builder.datePicker()
                     .setTitleText("Selecciona una fecha")
+                    .setTheme(R.style.CalendarTheme)
                     .build()
 
             datePicker.addOnPositiveButtonClickListener { selection ->
-                val selectedDate = Instant.ofEpochMilli(selection).atZone(ZoneId.systemDefault()).toLocalDate()
+                val selectedDate =
+                    Instant.ofEpochMilli(selection).atZone(ZoneId.systemDefault()).toLocalDate()
                 val formattedDate = DateTimeFormatter.ofPattern("dd/MM/yyyy").format(selectedDate)
                 datePickerButton.setText(formattedDate)
             }
 
             datePicker.show(childFragmentManager, "MATERIAL_DATE_PICKER")
         }
+
+        val recyclerView = fragment.findViewById<RecyclerView>(R.id.offers_horizontal_search)
+        recyclerView.layoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        val offers = mutableListOf<Offer>().apply {
+            add(
+                Offer(
+                    "20% discount for mastercard users",
+                    "Limited time offer!",
+                    R.drawable.mastercard_card,
+                    null
+                )
+            )
+            add(
+                Offer(
+                    "25% discount with your Visa credit cards",
+                    "Limited time offer!",
+                    R.drawable.visa_card,
+                    null
+                )
+            )
+
+
+        }
+        val offerAdapter = OfferAdapter(offers, true)
+        recyclerView.adapter = offerAdapter
 
         return fragment
     }
