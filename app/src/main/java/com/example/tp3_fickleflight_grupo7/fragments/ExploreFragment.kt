@@ -1,12 +1,16 @@
 package com.example.tp3_fickleflight_grupo7.fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.tp3_fickleflight_grupo7.MainActivity
 import com.example.tp3_fickleflight_grupo7.R
+import com.example.tp3_fickleflight_grupo7.adapter.OfferAdapter
+import com.example.tp3_fickleflight_grupo7.entities.Offer
 
 class ExploreFragment : Fragment() {
 
@@ -27,7 +31,7 @@ class ExploreFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         // Cambiar el estado de la toolbar
-        (activity as? MainActivity)?.toolbarNoLogo(false)
+
     }
 
     override fun onDestroyView() {

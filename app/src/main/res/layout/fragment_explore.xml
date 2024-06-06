@@ -40,7 +40,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
-                    android:contentDescription="Flight Icon"
+                    android:contentDescription="@string/flight_icon"
                     android:padding="16dp"
                     android:src="@drawable/flight_icon_title" />
             </LinearLayout>
@@ -48,7 +48,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Trending Destinations"
+                android:text="@string/trending_destinations"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:padding="8dp" />
@@ -64,18 +64,19 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Offers"
+                android:text="@string/offers"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                android:padding="8dp" />
+                android:padding="8dp"
+                android:layout_marginTop="90dp"/>
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recycler_view_offers"
+                android:id="@+id/recycler_view_offers_horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="112dp"
                 android:orientation="horizontal"
-                android:scrollbars="horizontal"
-                android:padding="8dp" />
+                android:padding="8dp"
+                />
 
         </LinearLayout>
 
